@@ -16,30 +16,20 @@ source:
 
 build:
     number: 0
-    features:
-        - vc14  # [win]
     skip: true  # [py<35 or win32]
 
 
 requirements:
     build:
-        - toolchain
+        - {{ compiler('cxx') }}
+        - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+        #missing! - {{ cdt('libglu') }}  # [linux]
         - cmake
-        - vc 14  # [win and py>=35]
         - ninja
-        - occt 7.2.*
-        - python
         - pybind11
-        - xorg-libxmu  # [linux]
-        - libglu  # [linux]
-    run:
-        - vc 14  # [win and py>=35]
-        - occt 7.2.*
+    host:
+        - occt
         - python
-        - xorg-libxi  # [linux]
-        - xorg-libxmu  # [linux]
-        - libglu  # [linux]
-
 test:
     imports:
         - netgen
