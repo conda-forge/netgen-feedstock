@@ -12,6 +12,10 @@ cd build
 cmake .. -G "Ninja" \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
+      -DNG_INSTALL_DIR_BIN=bin \
+      -DNG_INSTALL_DIR_LIB=lib/netgen \
+      -DNG_INSTALL_DIR_CMAKE=lib/cmake/netgen \
+      -DNG_INSTALL_DIR_RES=share \
       -DNG_INSTALL_DIR_INCLUDE=$PREFIX/include/netgen \
       -DNG_INSTALL_DIR_PYTHON=${SP_DIR} \
       -DOCC_INCLUDE_DIR=$PREFIX/include/opencascade \
