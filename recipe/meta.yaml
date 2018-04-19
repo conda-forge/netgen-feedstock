@@ -13,9 +13,10 @@ source:
     sha256: {{ sha256 }}
     patches:
         - python.patch
+        - salome.patch
 
 build:
-    number: 0
+    number: 1
     features:
         - vc14  # [win]
     skip: true  # [py<35 or win32]
