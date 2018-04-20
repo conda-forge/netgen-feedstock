@@ -7,7 +7,7 @@ cmake .. -G "Ninja" \
       -DNG_INSTALL_DIR_INCLUDE=$PREFIX/include/netgen \
       -DNG_INSTALL_DIR_PYTHON=${SP_DIR} \
       -DNG_INSTALL_DIR_BIN=bin \
-      -DNG_INSTALL_DIR_LIB=lib/netgen \
+      -DNG_INSTALL_DIR_LIB=lib \
       -DNG_INSTALL_DIR_CMAKE=lib/cmake/netgen \
       -DNG_INSTALL_DIR_RES=share \
       -DOCC_INCLUDE_DIR=$PREFIX/include/opencascade \
