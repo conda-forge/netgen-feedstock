@@ -16,7 +16,7 @@ source:
         - salome.patch
 
 build:
-    number: 2
+    number: 3
     features:
         - vc14  # [win]
     skip: true  # [py<35 or win32]

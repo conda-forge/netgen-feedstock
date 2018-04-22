@@ -943,20 +943,6 @@ index e2348ec..71953b8 100644
  #include <cstdlib>
  // #include "SALOME_Log.hxx"
  
-diff --git a/nglib/nglib.cpp b/nglib/nglib.cpp
-index 5fea184..2c8883b 100644
---- a/nglib/nglib.cpp
-+++ b/nglib/nglib.cpp
-@@ -91,7 +91,8 @@ namespace nglib
-    // Clean-up functions before ending usage of nglib
-    DLL_HEADER void Ng_Exit ()
-    {
--      ;
-+      delete testout;
-+      testout = 0;
-    }
- 
- 
 diff --git a/nglib/nglib.h b/nglib/nglib.h
 index 8a78da0..2001a2c 100644
 --- a/nglib/nglib.h
