@@ -13,8 +13,8 @@ source:
     sha256: {{ sha256 }}
     patches:
         - python.patch
-        - salome.patch
-
+        - salome.patch  # [unix]
+        - salome_win.patch  # [win]
 build:
     number: 0
     features:
