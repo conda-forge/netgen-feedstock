@@ -16,30 +16,22 @@ source:
         - salome.patch  # [unix]
         - salome_win.patch  # [win]
 build:
-    number: 0
-    features:
-        - vc14  # [win]
+    number: 1
     skip: true  # [py<35 or win32]
 
 
 requirements:
     build:
-        - toolchain
+        - {{ compiler('cxx') }}
         - cmake
-        - vc 14  # [win and py>=35]
         - ninja
-        - occt 7.2.*
+    host:
+        - occt
         - python
         - pybind11
-        - xorg-libxmu  # [linux]
-        - libglu  # [linux]
     run:
-        - vc 14  # [win and py>=35]
-        - occt 7.2.*
+        - {{ pin_compatible("occt", max_pin="x.x") }}
         - python
-        - xorg-libxi  # [linux]
-        - xorg-libxmu  # [linux]
-        - libglu  # [linux]
 
 test:
     imports:
