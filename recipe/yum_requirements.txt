@@ -1,0 +1,2 @@
+libXmu-devel
+mesa-libGLU-devel
