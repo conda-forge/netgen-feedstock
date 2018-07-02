@@ -27,13 +27,13 @@ requirements:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
     host:
-        - occt 7.2.*
+        - occt
         - python
         - pybind11
         - xorg-libxmu  # [linux]
         - libglu  # [linux]
     run:
-        - occt 7.2.*
+        - {{ pin_compatible("occt", max_pin="x.x") }}
         - python
         - xorg-libxi  # [linux]
         - xorg-libxmu  # [linux]
