@@ -16,25 +16,23 @@ source:
         - salome.patch  # [unix]
         - salome_win.patch  # [win]
 build:
-    number: 0
-    features:
-        - vc14  # [win]
+    number: 1
     skip: true  # [py<35 or win32]
 
 
 requirements:
     build:
-        - toolchain
         - cmake
-        - vc 14  # [win and py>=35]
         - ninja
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+    host:
         - occt 7.2.*
         - python
         - pybind11
         - xorg-libxmu  # [linux]
         - libglu  # [linux]
     run:
-        - vc 14  # [win and py>=35]
         - occt 7.2.*
         - python
         - xorg-libxi  # [linux]
