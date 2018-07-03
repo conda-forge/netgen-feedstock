@@ -16,16 +16,16 @@ source:
         - salome.patch  # [unix]
         - salome_win.patch  # [win]
 build:
-    number: 2
+    number: 3
     skip: true  # [py<35 or win32]
 
 
 requirements:
     build:
         - {{ compiler('cxx') }}
-        - cmake
         - ninja
     host:
+        - cmake
         - occt 7.3
         - python
         - pybind11
