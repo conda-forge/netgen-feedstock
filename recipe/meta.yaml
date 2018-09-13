@@ -1,6 +1,6 @@
 {% set name = "netgen" %}
-{% set version = "6.2.1804" %}
-{% set sha256 = "81311f4eabd6c71367607d4dc07bea77c3d4c449d1700d79c9865be9c1314fa5" %}
+{% set version = "6.2.1808" %}
+{% set sha256 = "20501a2f51beeb73a27f8b9ad57af7e452d38b36334b244c3de66b171b2f29a2" %}
 
 
 package:
@@ -16,7 +16,7 @@ source:
         - salome.patch  # [unix]
         - salome_win.patch  # [win]
 build:
-    number: 3
+    number: 0
     skip: true  # [py<35 or win32]
 
 
