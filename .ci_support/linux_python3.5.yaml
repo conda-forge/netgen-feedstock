@@ -1,6 +1,16 @@
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
 cxx_compiler:
 - toolchain_cxx
+docker_image:
+- condaforge/linux-anvil
+occt:
+- '7.3'
 pin_run_as_build:
+  occt:
+    max_pin: x.x
   python:
     min_pin: x.x
     max_pin: x.x
