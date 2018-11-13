@@ -16,7 +16,7 @@ source:
         - salome.patch  # [unix]
         - salome_win.patch  # [win]
 build:
-    number: 0
+    number: 1000
     skip: true  # [py<35 or win32]
 
 
