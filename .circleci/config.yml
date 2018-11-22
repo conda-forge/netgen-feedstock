@@ -1,11 +1,11 @@
 version: 2
 
 jobs:
-  build_linux_cxx_compilergxxpython3.6:
+  build_linux_c_compilergcccxx_compilergxxpython3.6:
     working_directory: ~/test
     machine: true
     environment:
-      - CONFIG: "linux_cxx_compilergxxpython3.6"
+      - CONFIG: "linux_c_compilergcccxx_compilergxxpython3.6"
     steps:
       - checkout
       - run:
@@ -18,11 +18,11 @@ jobs:
       - run:
           # Run, test and (if we have a BINSTAR_TOKEN) upload the distributions.
           command: ./.circleci/run_docker_build.sh
-  build_linux_cxx_compilergxxpython3.7:
+  build_linux_c_compilergcccxx_compilergxxpython3.7:
     working_directory: ~/test
     machine: true
     environment:
-      - CONFIG: "linux_cxx_compilergxxpython3.7"
+      - CONFIG: "linux_c_compilergcccxx_compilergxxpython3.7"
     steps:
       - checkout
       - run:
@@ -35,11 +35,11 @@ jobs:
       - run:
           # Run, test and (if we have a BINSTAR_TOKEN) upload the distributions.
           command: ./.circleci/run_docker_build.sh
-  build_linux_cxx_compilertoolchain_cxxpython3.6:
+  build_linux_c_compilertoolchain_ccxx_compilertoolchain_cxxpython3.6:
     working_directory: ~/test
     machine: true
     environment:
-      - CONFIG: "linux_cxx_compilertoolchain_cxxpython3.6"
+      - CONFIG: "linux_c_compilertoolchain_ccxx_compilertoolchain_cxxpython3.6"
     steps:
       - checkout
       - run:
@@ -52,11 +52,11 @@ jobs:
       - run:
           # Run, test and (if we have a BINSTAR_TOKEN) upload the distributions.
           command: ./.circleci/run_docker_build.sh
-  build_linux_cxx_compilertoolchain_cxxpython3.7:
+  build_linux_c_compilertoolchain_ccxx_compilertoolchain_cxxpython3.7:
     working_directory: ~/test
     machine: true
     environment:
-      - CONFIG: "linux_cxx_compilertoolchain_cxxpython3.7"
+      - CONFIG: "linux_c_compilertoolchain_ccxx_compilertoolchain_cxxpython3.7"
     steps:
       - checkout
       - run:
@@ -69,12 +69,12 @@ jobs:
       - run:
           # Run, test and (if we have a BINSTAR_TOKEN) upload the distributions.
           command: ./.circleci/run_docker_build.sh
-  build_osx_cxx_compilerclangxxpython3.6:
+  build_osx_c_compilerclangcxx_compilerclangxxpython3.6:
     working_directory: ~/test
     macos:
       xcode: "9.0"
     environment:
-      - CONFIG: "osx_cxx_compilerclangxxpython3.6"
+      - CONFIG: "osx_c_compilerclangcxx_compilerclangxxpython3.6"
     steps:
       - checkout
       - run:
@@ -85,12 +85,12 @@ jobs:
       - run:
           # Run, test and (if we have a BINSTAR_TOKEN) upload the distributions.
           command: ./.circleci/run_osx_build.sh
-  build_osx_cxx_compilerclangxxpython3.7:
+  build_osx_c_compilerclangcxx_compilerclangxxpython3.7:
     working_directory: ~/test
     macos:
       xcode: "9.0"
     environment:
-      - CONFIG: "osx_cxx_compilerclangxxpython3.7"
+      - CONFIG: "osx_c_compilerclangcxx_compilerclangxxpython3.7"
     steps:
       - checkout
       - run:
@@ -101,12 +101,12 @@ jobs:
       - run:
           # Run, test and (if we have a BINSTAR_TOKEN) upload the distributions.
           command: ./.circleci/run_osx_build.sh
-  build_osx_cxx_compilertoolchain_cxxpython3.6:
+  build_osx_c_compilertoolchain_ccxx_compilertoolchain_cxxpython3.6:
     working_directory: ~/test
     macos:
       xcode: "9.0"
     environment:
-      - CONFIG: "osx_cxx_compilertoolchain_cxxpython3.6"
+      - CONFIG: "osx_c_compilertoolchain_ccxx_compilertoolchain_cxxpython3.6"
     steps:
       - checkout
       - run:
@@ -117,12 +117,12 @@ jobs:
       - run:
           # Run, test and (if we have a BINSTAR_TOKEN) upload the distributions.
           command: ./.circleci/run_osx_build.sh
-  build_osx_cxx_compilertoolchain_cxxpython3.7:
+  build_osx_c_compilertoolchain_ccxx_compilertoolchain_cxxpython3.7:
     working_directory: ~/test
     macos:
       xcode: "9.0"
     environment:
-      - CONFIG: "osx_cxx_compilertoolchain_cxxpython3.7"
+      - CONFIG: "osx_c_compilertoolchain_ccxx_compilertoolchain_cxxpython3.7"
     steps:
       - checkout
       - run:
@@ -138,11 +138,11 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build_linux_cxx_compilergxxpython3.6
-      - build_linux_cxx_compilergxxpython3.7
-      - build_linux_cxx_compilertoolchain_cxxpython3.6
-      - build_linux_cxx_compilertoolchain_cxxpython3.7
-      - build_osx_cxx_compilerclangxxpython3.6
-      - build_osx_cxx_compilerclangxxpython3.7
-      - build_osx_cxx_compilertoolchain_cxxpython3.6
-      - build_osx_cxx_compilertoolchain_cxxpython3.7
+      - build_linux_c_compilergcccxx_compilergxxpython3.6
+      - build_linux_c_compilergcccxx_compilergxxpython3.7
+      - build_linux_c_compilertoolchain_ccxx_compilertoolchain_cxxpython3.6
+      - build_linux_c_compilertoolchain_ccxx_compilertoolchain_cxxpython3.7
+      - build_osx_c_compilerclangcxx_compilerclangxxpython3.6
+      - build_osx_c_compilerclangcxx_compilerclangxxpython3.7
+      - build_osx_c_compilertoolchain_ccxx_compilertoolchain_cxxpython3.6
+      - build_osx_c_compilertoolchain_ccxx_compilertoolchain_cxxpython3.7
