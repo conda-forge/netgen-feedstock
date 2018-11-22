@@ -23,15 +23,27 @@ requirements:
     build:
         - {{ compiler('cxx') }}
         - {{ cdt('mesa-libgl-devel') }}  # [linux]
+        - {{ cdt('mesa-dri-drivers') }}  # [linux]
+        - {{ cdt('libselinux') }}  # [linux]
+        - {{ cdt('libxdamage') }}  # [linux]
+        - {{ cdt('libxfixes') }}  # [linux]
+        - {{ cdt('libxcb') }}  # [linux]
+        - {{ cdt('libxau') }}  # [linux]
+        - {{ cdt('libxext') }}  # [linux]
+        - {{ cdt('libxxf86vm') }}  # [linux]
         - ninja
     host:
         - cmake
         - occt
         - python
         - pybind11
+        - libglu
+        - expat
     run:
         - occt
         - python
+        - libglu
+        - expat
 
 test:
     imports:
