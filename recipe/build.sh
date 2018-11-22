@@ -1,6 +1,14 @@
 mkdir build -p
 cd build
 
+if [[ ${c_compiler} != "toolchain_c" ]]; then
+    declare -a CMAKE_PLATFORM_FLAGS
+    if [[ ${HOST} =~ .*darwin.* ]]; then
+        CMAKE_PLATFORM_FLAGS+=(-DCMAKE_OSX_SYSROOT="${CONDA_BUILD_SYSROOT}")
+    else
+        CMAKE_PLATFORM_FLAGS+=(-DCMAKE_TOOLCHAIN_FILE="${RECIPE_DIR}/cross-linux.cmake")
+fi
+
 cmake .. -G "Ninja" \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
@@ -17,6 +25,7 @@ cmake .. -G "Ninja" \
       -DUSE_PYTHON=ON \
       -DUSE_GUI=ON \
       -DUSE_SUPERBUILD=OFF \
+      ${CMAKE_PLATFORM_FLAGS[@]} \
       ..
 
 ninja install
