@@ -18,7 +18,7 @@ source:
         - salome_win.patch  # [win]
 build:
     number: 1000
-    skip: True # [py27]
+    skip: True  # [py27]
 
 requirements:
     build:
