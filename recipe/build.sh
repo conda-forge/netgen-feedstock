@@ -24,7 +24,7 @@ cmake .. -G "Ninja" \
       -DUSE_NATIVE_ARCH=OFF \
       -DUSE_OCC=ON \
       -DUSE_PYTHON=ON \
-      -DUSE_GUI=ON \
+      -DUSE_GUI=OFF \
       -DUSE_SUPERBUILD=OFF \
       ${CMAKE_PLATFORM_FLAGS[@]} \
       ..

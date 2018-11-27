@@ -1,6 +1,6 @@
 {% set name = "netgen" %}
 {% set version = "6.2.1808" %}
-{% set sha256 = "20501a2f51beeb73a27f8b9ad57af7e452d38b36334b244c3de66b171b2f29a2" %}
+{% set sha256 = "2c9079b99bfc78e564eef6a05b9ed0283c430a43df1bd3c457d183da6309e121" %}
 
 
 package:
@@ -9,7 +9,8 @@ package:
 
 source:
     fn: netgen{{ version }}.tar.gz
-    url: https://github.com/NGSolve/netgen/archive/v{{ version }}.tar.gz
+    # url: https://github.com/NGSolve/netgen/archive/v{{ version }}.tar.gz
+    url: https://github.com/looooo/netgen/archive/patch-1.tar.gz
     sha256: {{ sha256 }}
     patches:
         - python.patch
@@ -24,26 +25,15 @@ requirements:
         - {{ compiler('cxx') }}
         - {{ cdt('mesa-libgl-devel') }}  # [linux]
         - {{ cdt('mesa-dri-drivers') }}  # [linux]
-        - {{ cdt('libselinux') }}  # [linux]
-        - {{ cdt('libxdamage') }}  # [linux]
-        - {{ cdt('libxfixes') }}  # [linux]
-        - {{ cdt('libxcb') }}  # [linux]
-        - {{ cdt('libxau') }}  # [linux]
-        - {{ cdt('libxext') }}  # [linux]
-        - {{ cdt('libxxf86vm') }}  # [linux]
         - ninja
     host:
         - cmake
         - occt
         - python
         - pybind11
-        - libglu
-        - expat
     run:
         - occt
         - python
-        - libglu
-        - expat
 
 test:
     imports:
