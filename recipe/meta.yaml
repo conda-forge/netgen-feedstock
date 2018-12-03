@@ -1,6 +1,6 @@
 {% set name = "netgen" %}
-{% set version = "6.2.1808" %}
-{% set sha256 = "20501a2f51beeb73a27f8b9ad57af7e452d38b36334b244c3de66b171b2f29a2" %}
+{% set version = "6.2.1810" %}
+{% set sha256 = "8b5f49a935530e25d5d5355151a61257046622b1372211456a6d017c261ad54d" %}
 
 
 package:
