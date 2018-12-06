@@ -13,7 +13,7 @@ source:
     url: https://github.com/NGSolve/netgen/archive/f3950af799b6746fa15985f0103da00ce6fbf2e3.tar.gz
     sha256: {{ sha256 }}
     patches:
-        - python.patch
+        - cmake.patch
         - salome.patch  # [unix]
         - salome_win.patch  # [win]
 build:
