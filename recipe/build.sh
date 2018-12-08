@@ -26,6 +26,7 @@ cmake .. -G "Ninja" \
       -DUSE_PYTHON=ON \
       -DUSE_GUI=OFF \
       -DUSE_SUPERBUILD=OFF \
+      -DBUILD_WITH_CONDA=ON \
       ${CMAKE_PLATFORM_FLAGS[@]} \
       ..
 
