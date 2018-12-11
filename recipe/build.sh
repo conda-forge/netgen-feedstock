@@ -30,5 +30,5 @@ cmake .. -G "Ninja" \
       ${CMAKE_PLATFORM_FLAGS[@]} \
       ..
 
-ninja install
+ninja install -v
 
