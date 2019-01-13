@@ -37,7 +37,9 @@ requirements:
 test:
     imports:
         - netgen
-
+    commads:
+        - otool -L "${PREFIX}/lib/python3.7/site-packages/netgen/libngpy.so"  # [unix and py==37]
+        - otool -L "${PREFIX}/lib/python3.6/site-packages/netgen/libngpy.so"  # [unix and py==36]
 about:
     home: https://sourceforge.net/projects/netgen-mesher/
     license: LGPL2.1
