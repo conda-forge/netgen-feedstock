@@ -31,7 +31,6 @@ requirements:
     run:
         - occt
         - python
-        - mesalib  # should be a dependency of occt!
 
 test:
     commands:
