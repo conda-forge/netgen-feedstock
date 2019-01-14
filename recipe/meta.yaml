@@ -1,6 +1,6 @@
 {% set name = "netgen" %}
 {% set version = "6.2.1811.b0" %}
-{% set sha256 = "c533aa625c9436b60333f93e8ccca1b250b85307c3db2158024b1b1ec1d62562" %}
+{% set sha256 = "fc8dbcc012a18731c5b223f5bbff132181292e4bde039da7fae9b65747a99ac1" %}
 
 
 package:
@@ -10,7 +10,7 @@ package:
 source:
     fn: netgen_v{{ version }}.tar.gz
     # url: https://github.com/NGSolve/netgen/archive/v{{ version }}.tar.gz
-    url: https://github.com/NGSolve/netgen/archive/b7d457e8b8814dc49890d8fbea772624078e8663.tar.gz
+    url: https://github.com/NGSolve/netgen/archive/e53b6638a8eb0a514f16dda59230119ca1a16d57.tar.gz
     sha256: {{ sha256 }}
 
 build:
