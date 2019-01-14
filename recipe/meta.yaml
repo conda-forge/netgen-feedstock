@@ -34,10 +34,9 @@ requirements:
 
 test:
     commands:
-        - otool -L "${PREFIX}/lib/python*/site-packages/netgen/libngpy.so"  # [osx]
-        - ldd "${PREFIX}/lib/python*/site-packages/netgen/libngpy.so"  # [linux]
-    imports:
-        - netgen
+        - otool -L "${PREFIX}/lib/python*/site-packages/netgen/libngpy.so"  # [osx and py==37]
+        - ldd "${PREFIX}/lib/python*/site-packages/netgen/libngpy.so"  # [linux and py==37]
+        - python -c "import sys; print(sys.version); import netgen;"
 
 about:
     home: https://sourceforge.net/projects/netgen-mesher/
