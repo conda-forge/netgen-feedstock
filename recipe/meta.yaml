@@ -35,12 +35,12 @@ requirements:
         - python
 
 test:
-    imports:
-        - netgen  # [linux or win]
     commands:
-        - otool -L "${PREFIX}/lib/python2.7/site-packages/netgen/libngpy.so"  # [osx and py==27]
-        - otool -L "${PREFIX}/lib/python3.7/site-packages/netgen/libngpy.so"  # [osx and py==37]
-        - otool -L "${PREFIX}/lib/python3.6/site-packages/netgen/libngpy.so"  # [osx and py==36]
+        - otool -L "${PREFIX}/lib/python*/site-packages/netgen/libngpy.so"  # [osx]
+        - ldd "${PREFIX}/lib/python*/site-packages/netgen/libngpy.so"  # [linux]
+    imports:
+        - netgen
+
 about:
     home: https://sourceforge.net/projects/netgen-mesher/
     license: LGPL2.1
