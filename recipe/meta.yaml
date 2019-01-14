@@ -10,11 +10,9 @@ package:
 source:
     fn: netgen_v{{ version }}.tar.gz
     # url: https://github.com/NGSolve/netgen/archive/v{{ version }}.tar.gz
-    url: https://github.com/looooo/netgen/archive/d9f82838a389b34a81e03547b2c10ae9d026e6ed.tar.gz
+    url: https://github.com/NGSolve/netgen/archive/d9f82838a389b34a81e03547b2c10ae9d026e6ed.tar.gz
     sha256: {{ sha256 }}
-    patches:
-        - salome.patch  # [unix]
-        - salome_win.patch  # [win]
+
 build:
     number: 1000
     skip: True  # [py27]
