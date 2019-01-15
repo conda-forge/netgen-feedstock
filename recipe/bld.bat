@@ -14,6 +14,7 @@ cmake .. -G "Ninja" ^
     -DUSE_OCC=ON ^
     -DUSE_PYTHON=ON ^
     -DUSE_GUI=OFF ^
+    -DBUILD_WITH_CONDA=ON ^
     -DUSE_SUPERBUILD=OFF
 
 if errorlevel 1 exit 1

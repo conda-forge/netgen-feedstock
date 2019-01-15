@@ -1,6 +1,8 @@
 About netgen
 ============
 
+[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
+
 Home: https://sourceforge.net/projects/netgen-mesher/
 
 Package license: LGPL2.1
@@ -14,8 +16,7 @@ NETGEN is an automatic 3d tetrahedral mesh generator. It accepts input from cons
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/netgen-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/netgen-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/netgen-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/netgen-feedstock)
+[![Linux,OSX](https://img.shields.io/circleci/project/github/conda-forge/netgen-feedstock/master.svg?label=Linux,OSX)](https://circleci.com/gh/conda-forge/netgen-feedstock)
 [![Windows](https://img.shields.io/appveyor/ci/conda-forge/netgen-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/netgen-feedstock/branch/master)
 
 Current release info
@@ -104,3 +105,9 @@ In order to produce a uniquely identifiable distribution:
  * If the version of a package **is** being increased, please remember to return
    the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
    back to 0.
+
+Feedstock Maintainers
+=====================
+
+* [@looooo](https://github.com/looooo/)
+
