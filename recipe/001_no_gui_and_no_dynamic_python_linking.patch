@@ -110,21 +110,22 @@ index ef0ee42..1a955fe 100644
  if(NOT APPLE)
    include(CPack) 
 diff --git a/libsrc/csg/CMakeLists.txt b/libsrc/csg/CMakeLists.txt
-index 224a48e..5b4c925 100644
+index 224a48e..7e99a4e 100644
 --- a/libsrc/csg/CMakeLists.txt
 +++ b/libsrc/csg/CMakeLists.txt
-@@ -12,7 +12,10 @@ if(APPLE)
+@@ -12,8 +12,10 @@ if(APPLE)
  endif(APPLE)
  
  if(NOT WIN32)
 -    target_link_libraries(csg mesh ${PYTHON_LIBRARIES})
+-    target_link_libraries(csg ${PYTHON_LIBRARIES})
 +    target_link_libraries(csg PUBLIC mesh)
 +    if(DYNAMIC_LINK_PYTHON)
 +      target_link_libraries(csg PUBLIC ${PYTHON_LIBRARIES})
 +    endif(DYNAMIC_LINK_PYTHON)
-     target_link_libraries(csg ${PYTHON_LIBRARIES})
      install( TARGETS csg ${NG_INSTALL_DIR})
  endif(NOT WIN32)
+ 
 diff --git a/libsrc/geom2d/CMakeLists.txt b/libsrc/geom2d/CMakeLists.txt
 index 754c79f..f03d0c6 100644
 --- a/libsrc/geom2d/CMakeLists.txt

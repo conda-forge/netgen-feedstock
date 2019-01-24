@@ -35,6 +35,8 @@ test:
     commands:
         - otool -L "${PREFIX}/lib/python3.7/site-packages/netgen/libngpy.so"  # [osx and py==37]
         - ldd "${PREFIX}/lib/python3.7/site-packages/netgen/libngpy.so"  # [linux and py==37]
+        - otool -L "${PREFIX}/lib/python3.6/site-packages/netgen/libngpy.so"  # [osx and py==36]
+        - ldd "${PREFIX}/lib/python3.6/site-packages/netgen/libngpy.so"  # [linux and py==36]
         - python -c "import sys; print(sys.version); import netgen;"
 
 about:
