@@ -11,6 +11,8 @@ source:
     fn: netgen_v{{ version }}.tar.gz
     url: https://github.com/NGSolve/netgen/archive/v{{ version }}.tar.gz
     sha256: {{ sha256 }}
+    patches:
+        - 001_no_gui_and_no_dynamic_python_linking.patch
 
 build:
     number: 1001
