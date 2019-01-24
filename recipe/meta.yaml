@@ -1,6 +1,6 @@
 {% set name = "netgen" %}
-{% set version = "6.2.1811.b0" %}
-{% set sha256 = "fc8dbcc012a18731c5b223f5bbff132181292e4bde039da7fae9b65747a99ac1" %}
+{% set version = "6.2.1808" %}
+{% set sha256 = "20501a2f51beeb73a27f8b9ad57af7e452d38b36334b244c3de66b171b2f29a2" %}
 
 
 package:
@@ -9,12 +9,11 @@ package:
 
 source:
     fn: netgen_v{{ version }}.tar.gz
-    # url: https://github.com/NGSolve/netgen/archive/v{{ version }}.tar.gz
-    url: https://github.com/NGSolve/netgen/archive/e53b6638a8eb0a514f16dda59230119ca1a16d57.tar.gz
+    url: https://github.com/NGSolve/netgen/archive/v{{ version }}.tar.gz
     sha256: {{ sha256 }}
 
 build:
-    number: 1000
+    number: 1001
     skip: True  # [py27]
 
 requirements:
