@@ -16,7 +16,7 @@ cmake -G "Ninja" ^
       -D USE_GUI=OFF ^
       -D BUILD_WITH_CONDA=ON ^
       -D USE_SUPERBUILD=OFF ^
-      -D DYNAMIC_LINK_PYTHON=OFF ^
+      -D DYNAMIC_LINK_PYTHON=ON ^
       ..
 
 if errorlevel 1 exit 1
