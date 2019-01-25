@@ -1,6 +1,6 @@
 {% set name = "netgen" %}
-{% set version = "6.2.1811.b0" %}
-{% set sha256 = "fc8dbcc012a18731c5b223f5bbff132181292e4bde039da7fae9b65747a99ac1" %}
+{% set version = "6.2.1808" %}
+{% set sha256 = "20501a2f51beeb73a27f8b9ad57af7e452d38b36334b244c3de66b171b2f29a2" %}
 
 
 package:
@@ -9,12 +9,13 @@ package:
 
 source:
     fn: netgen_v{{ version }}.tar.gz
-    # url: https://github.com/NGSolve/netgen/archive/v{{ version }}.tar.gz
-    url: https://github.com/NGSolve/netgen/archive/e53b6638a8eb0a514f16dda59230119ca1a16d57.tar.gz
+    url: https://github.com/NGSolve/netgen/archive/v{{ version }}.tar.gz
     sha256: {{ sha256 }}
+    patches:
+        - 001_no_gui_and_no_dynamic_python_linking.patch
 
 build:
-    number: 1000
+    number: 1001
     skip: True  # [py27]
 
 requirements:
@@ -34,6 +35,8 @@ test:
     commands:
         - otool -L "${PREFIX}/lib/python3.7/site-packages/netgen/libngpy.so"  # [osx and py==37]
         - ldd "${PREFIX}/lib/python3.7/site-packages/netgen/libngpy.so"  # [linux and py==37]
+        - otool -L "${PREFIX}/lib/python3.6/site-packages/netgen/libngpy.so"  # [osx and py==36]
+        - ldd "${PREFIX}/lib/python3.6/site-packages/netgen/libngpy.so"  # [linux and py==36]
         - python -c "import sys; print(sys.version); import netgen;"
 
 about:
