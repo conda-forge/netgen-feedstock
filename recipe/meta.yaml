@@ -43,6 +43,7 @@ about:
     home: https://sourceforge.net/projects/netgen-mesher/
     license: LGPL2.1
     license_family: LGPL
+    license_file: LICENSE
     summary: this is netgen
     description: NETGEN is an automatic 3d tetrahedral mesh generator.
                  It accepts input from constructive solid geometry (CSG) or boundary representation (BRep) from
