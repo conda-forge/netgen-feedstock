@@ -16,7 +16,7 @@ source:
         - 002_do_not_set_c++_standart_explicitly.patch
 
 build:
-    number: 1003
+    number: 1004
     skip: True  # [py27]
 
 requirements:
@@ -28,9 +28,11 @@ requirements:
         - occt
         - python
         - pybind11
+        - zlib
     run:
         - occt
         - python
+        - zlib
 
 test:
     commands:
