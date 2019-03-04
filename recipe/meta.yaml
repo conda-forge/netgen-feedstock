@@ -28,9 +28,11 @@ requirements:
         - occt
         - python
         - pybind11
+        - zlib
     run:
         - occt
         - python
+        - zlib
 
 test:
     commands:
