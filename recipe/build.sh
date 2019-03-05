@@ -5,6 +5,7 @@ cd build
 cmake -G "Ninja" \
       -D CMAKE_BUILD_TYPE=Release \
       -D CMAKE_INSTALL_PREFIX=$PREFIX \
+      -D CMAKE_PREFIX_PATH=$PREFIX \
       -D NG_INSTALL_DIR_INCLUDE=$PREFIX/include/netgen \
       -D NG_INSTALL_DIR_PYTHON=${SP_DIR} \
       -D NG_INSTALL_DIR_BIN=bin \
