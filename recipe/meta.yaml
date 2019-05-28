@@ -36,8 +36,6 @@ requirements:
 
 test:
     commands:
-        - otool -L "${PREFIX}/lib/python${PY_VER}/site-packages/netgen/libngpy.so"  # [osx]
-        - ldd "${PREFIX}/lib/python${PY_VER}/site-packages/netgen/libngpy.so"  # [linux]
         - python -c "import sys; print(sys.version); import netgen;"
 
 about:
