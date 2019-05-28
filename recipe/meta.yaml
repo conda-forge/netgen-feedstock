@@ -16,7 +16,7 @@ source:
         - 002_do_not_set_c++_standart_explicitly.patch
 
 build:
-    number: 1005
+    number: 1006
     skip: True  # [py27]
 
 requirements:
@@ -36,10 +36,8 @@ requirements:
 
 test:
     commands:
-        - otool -L "${PREFIX}/lib/python3.7/site-packages/netgen/libngpy.so"  # [osx and py==37]
-        - ldd "${PREFIX}/lib/python3.7/site-packages/netgen/libngpy.so"  # [linux and py==37]
-        - otool -L "${PREFIX}/lib/python3.6/site-packages/netgen/libngpy.so"  # [osx and py==36]
-        - ldd "${PREFIX}/lib/python3.6/site-packages/netgen/libngpy.so"  # [linux and py==36]
+        - otool -L "${PREFIX}/lib/python${PY_VER}/site-packages/netgen/libngpy.so"  # [osx]
+        - ldd "${PREFIX}/lib/python${PY_VER}/site-packages/netgen/libngpy.so"  # [linux]
         - python -c "import sys; print(sys.version); import netgen;"
 
 about:
