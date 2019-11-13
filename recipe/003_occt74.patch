@@ -1,0 +1,12 @@
+diff --git a/libsrc/occ/occgeom.hpp b/libsrc/occ/occgeom.hpp
+index 6229a7cc..a87cbf52 100644
+--- a/libsrc/occ/occgeom.hpp
++++ b/libsrc/occ/occgeom.hpp
+@@ -73,7 +73,6 @@
+ #include "ShapeUpgrade_ShellSewing.hxx"
+ #include "ShapeFix_Shape.hxx"
+ #include "ShapeFix_Wireframe.hxx"
+-#include "BRepMesh.hxx"
+ #include "BRepMesh_IncrementalMesh.hxx"
+ #include "BRepBndLib.hxx"
+ #include "Bnd_Box.hxx"

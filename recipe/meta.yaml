@@ -14,6 +14,7 @@ source:
     patches:
         - 001_no_gui_and_no_dynamic_python_linking.patch
         - 002_do_not_set_c++_standart_explicitly.patch
+        - 003_occt74.patch
 
 build:
     number: 1007
