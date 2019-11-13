@@ -16,7 +16,7 @@ source:
         - 002_do_not_set_c++_standart_explicitly.patch
 
 build:
-    number: 1006
+    number: 1007
     skip: True  # [py27]
 
 requirements:
