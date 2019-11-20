@@ -1,6 +1,6 @@
 {% set name = "netgen" %}
-{% set version = "6.2.1808" %}
-{% set sha256 = "20501a2f51beeb73a27f8b9ad57af7e452d38b36334b244c3de66b171b2f29a2" %}
+{% set version = "6.2.1909" %}
+{% set sha256 = "89ee4014d99444407904eaa00fb62f472869538e81637b34370c16c8ae89fd7f" %}
 
 
 package:
@@ -17,7 +17,7 @@ source:
         - 003_occt74.patch
 
 build:
-    number: 1007
+    number: 0
     skip: True  # [py27]
 
 requirements:
