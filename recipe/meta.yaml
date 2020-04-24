@@ -41,7 +41,7 @@ test:
 
 about:
   home: https://sourceforge.net/projects/netgen-mesher/
-  license: LGPL2.1
+  license: LGPL-2.1
   license_family: LGPL
   license_file: LICENSE
   summary: this is netgen
