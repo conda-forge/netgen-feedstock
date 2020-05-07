@@ -14,7 +14,7 @@ cmake -G "Ninja" ^
       -D USE_OCC=ON ^
       -D USE_PYTHON=ON ^
       -D USE_GUI=OFF ^
-      -D BUILD_WITH_CONDA=ON ^
+      -D BUILD_FOR_CONDA=ON ^
       -D USE_SUPERBUILD=OFF ^
       -D DYNAMIC_LINK_PYTHON=ON ^
       ..
