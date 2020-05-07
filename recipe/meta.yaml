@@ -12,9 +12,7 @@ source:
   url: https://github.com/NGSolve/netgen/archive/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - 001_no_gui_and_no_dynamic_python_linking.patch
-    - 002_do_not_set_c++_standart_explicitly.patch
-    - 003_occt74.patch
+    - cmake.patch
 
 build:
   number: 0
