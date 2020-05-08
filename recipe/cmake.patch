@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 60d82727..dc9f50c7 100644
+index 60d82727..dce54bf7 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -37,15 +37,15 @@ set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake/
@@ -61,7 +61,7 @@ index 60d82727..dc9f50c7 100644
 -    endif( PYBIND_INCLUDE_DIR )
 +    if(BUILD_FOR_CONDA)
 +        find_package(pybind11 REQUIRED)
-+        set(PYBIND_INCLUDE_DIR pybind11_INCLUDE_DIR)
++        set(PYBIND_INCLUDE_DIR ${pybind11_INCLUDE_DIR})
 +    else(BUILD_FOR_CONDA)
 +      add_subdirectory(external_dependencies/pybind11)
 +      find_path(PYBIND_INCLUDE_DIR pybind11/pybind11.h HINTS ${PYTHON_INCLUDE_DIR})
