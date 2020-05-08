@@ -5,7 +5,6 @@ REM TODO: can not find tkint.h -> disabling GUI for WIN
 
 cmake -G "Ninja" ^
       -D CMAKE_BUILD_TYPE="Release" ^
-      -D INSTALL_DIR_LAYOUT="Unix" ^
       -D CMAKE_PREFIX_PATH:FILEPATH="%PREFIX%" ^
       -D CMAKE_INSTALL_PREFIX:FILEPATH="%LIBRARY_PREFIX%" ^
       -D NG_INSTALL_DIR_INCLUDE:FILEPATH="%LIBRARY_PREFIX%/include/netgen" ^
@@ -16,7 +15,6 @@ cmake -G "Ninja" ^
       -D USE_GUI=OFF ^
       -D BUILD_FOR_CONDA=ON ^
       -D USE_SUPERBUILD=OFF ^
-      -D DYNAMIC_LINK_PYTHON=ON ^
       ..
 
 if errorlevel 1 exit 1
