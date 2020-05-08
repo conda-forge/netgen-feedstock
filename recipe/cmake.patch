@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 60d82727..dce54bf7 100644
+index 60d82727..e6146245 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -37,15 +37,15 @@ set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake/
@@ -48,7 +48,7 @@ index 60d82727..dce54bf7 100644
  
  set(NG_INSTALL_DIR_PYTHON ${NG_INSTALL_DIR_PYTHON_DEFAULT} CACHE STRING "Install directory for Python files")
  set(NG_INSTALL_DIR_BIN ${NG_INSTALL_DIR_BIN_DEFAULT} CACHE STRING "Install directory for executables")
-@@ -269,13 +269,18 @@ else()
+@@ -269,16 +269,21 @@ else()
  endif()
  
  if (USE_PYTHON)
@@ -73,7 +73,11 @@ index 60d82727..dce54bf7 100644
 +    endif(BUILD_FOR_CONDA)
  
      target_include_directories(netgen_python INTERFACE ${PYBIND_INCLUDE_DIR} ${PYTHON_INCLUDE_DIRS})
-     if(NOT ${BUILD_FOR_CONDA})
+-    if(NOT ${BUILD_FOR_CONDA})
++    if(NOT ${BUILD_FOR_CONDA} AND NOT WIN32)
+         # Don't link python libraries in conda environments
+         target_link_libraries(netgen_python INTERFACE ${PYTHON_LIBRARIES})
+     endif()
 @@ -505,7 +510,7 @@ if(UNIX)
      endif(temp)
  endif(UNIX)
