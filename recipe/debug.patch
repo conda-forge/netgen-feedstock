@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index dc9f50c7..2b351b56 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -272,6 +272,7 @@ if (USE_PYTHON)
+     if(BUILD_FOR_CONDA)
+         find_package(pybind11 REQUIRED)
+         set(PYBIND_INCLUDE_DIR pybind11_INCLUDE_DIR)
++        message(STATUS "xxxxx ${pybind11_INCLUDE_DIR} xxxxx")
+     else(BUILD_FOR_CONDA)
+       add_subdirectory(external_dependencies/pybind11)
+       find_path(PYBIND_INCLUDE_DIR pybind11/pybind11.h HINTS ${PYTHON_INCLUDE_DIR})
