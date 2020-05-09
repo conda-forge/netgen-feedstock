@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 60d82727..95456c7c 100644
+index 60d82727..61cfac20 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -37,15 +37,15 @@ set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake/
@@ -21,7 +21,14 @@ index 60d82727..95456c7c 100644
  
  if(INSTALL_DIR)
    message(WARNING "INSTALL_DIR is deprecated, use CMAKE_INSTALL_PREFIX instead")
-@@ -129,7 +129,7 @@ endif(USE_PYTHON)
+@@ -123,13 +123,13 @@ if(USE_PYTHON)
+     find_package(PythonInterp 3 REQUIRED)
+     find_package(PythonLibs 3 REQUIRED)
+ 
+-    execute_process(COMMAND ${PYTHON_EXECUTABLE} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(1,0,''))" OUTPUT_VARIABLE PYTHON_PACKAGES_INSTALL_DIR OUTPUT_STRIP_TRAILING_WHITESPACE)
++    execute_process(COMMAND ${PYTHON_EXECUTABLE} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())" OUTPUT_VARIABLE PYTHON_PACKAGES_INSTALL_DIR OUTPUT_STRIP_TRAILING_WHITESPACE)
+     file(TO_CMAKE_PATH ${PYTHON_PACKAGES_INSTALL_DIR} PYTHON_PACKAGES_INSTALL_DIR)
+ endif(USE_PYTHON)
  
  set(NG_INSTALL_SUFFIX netgen CACHE STRING "Suffix appended to install directories (project name)")
  
