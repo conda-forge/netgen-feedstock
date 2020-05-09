@@ -115,16 +115,15 @@ index 82d8ea91..e5082121 100644
          endif()
      endif()
 diff --git a/nglib/CMakeLists.txt b/nglib/CMakeLists.txt
-index a7765e59..5fb3b9f4 100644
+index a7765e59..38d5bf6b 100644
 --- a/nglib/CMakeLists.txt
 +++ b/nglib/CMakeLists.txt
 @@ -38,7 +38,9 @@ if(USE_OCC AND NOT WIN32)
  endif(USE_OCC AND NOT WIN32)
  
  if(USE_PYTHON)
--    target_link_libraries(nglib PRIVATE ${PYTHON_LIBRARIES})
 +  if (NOT BUILD_FOR_CONDA OR WIN32)
-+    target_link_libraries(nglib PRIVATE PYTHON_LIBRARIES)
+     target_link_libraries(nglib PRIVATE ${PYTHON_LIBRARIES})
 +  endif()
  endif(USE_PYTHON)
  
