@@ -1,0 +1,49 @@
+diff --git a/libsrc/occ/occgeom.hpp b/libsrc/occ/occgeom.hpp
+index a77cd7a4..f6789b20 100644
+--- a/libsrc/occ/occgeom.hpp
++++ b/libsrc/occ/occgeom.hpp
+@@ -267,32 +267,32 @@ namespace netgen
+     void SetOCCParameters(const OCCParameters& par)
+     { occparam = par; }
+ 
+-    void Analyse(Mesh& mesh,
++    DLL_HEADER void Analyse(Mesh& mesh,
+                  const MeshingParameters& mparam) const override;
+-    void FindEdges(Mesh& mesh,
++    DLL_HEADER void FindEdges(Mesh& mesh,
+                    const MeshingParameters& mparam) const override;
+-    void MeshSurface(Mesh& mesh,
++    DLL_HEADER void MeshSurface(Mesh& mesh,
+                      const MeshingParameters& mparam) const override;
+  
+-    void FinalizeMesh(Mesh& mesh) const override;
++    DLL_HEADER void FinalizeMesh(Mesh& mesh) const override;
+      
+     DLL_HEADER void Save (string filename) const override;
+      
+-    void DoArchive(Archive& ar) override;
++    DLL_HEADER void DoArchive(Archive& ar) override;
+ 
+-    PointGeomInfo ProjectPoint(int surfind, Point<3> & p) const override;
+-    void ProjectPointEdge (int surfind, int surfind2, Point<3> & p,
++    DLL_HEADER PointGeomInfo ProjectPoint(int surfind, Point<3> & p) const override;
++    DLL_HEADER void ProjectPointEdge (int surfind, int surfind2, Point<3> & p,
+                            EdgePointGeomInfo* gi = nullptr) const override;
+-    bool ProjectPointGI (int surfind, Point<3> & p, PointGeomInfo & gi) const override;
+-    Vec<3> GetNormal(int surfind, const Point<3> & p, const PointGeomInfo* gi) const override;
+-    bool CalcPointGeomInfo(int surfind, PointGeomInfo& gi, const Point<3> & p3) const override;
++    DLL_HEADER bool ProjectPointGI (int surfind, Point<3> & p, PointGeomInfo & gi) const override;
++    DLL_HEADER Vec<3> GetNormal(int surfind, const Point<3> & p, const PointGeomInfo* gi) const override;
++    DLL_HEADER bool CalcPointGeomInfo(int surfind, PointGeomInfo& gi, const Point<3> & p3) const override;
+ 
+-    void PointBetweenEdge(const Point<3> & p1, const Point<3> & p2, double secpoint,
++    DLL_HEADER void PointBetweenEdge(const Point<3> & p1, const Point<3> & p2, double secpoint,
+                           int surfi1, int surfi2, 
+                           const EdgePointGeomInfo & ap1, 
+                           const EdgePointGeomInfo & ap2,
+                           Point<3> & newp, EdgePointGeomInfo & newgi) const override;
+-    void PointBetween(const Point<3> & p1, const Point<3> & p2, double secpoint,
++    DLL_HEADER void PointBetween(const Point<3> & p1, const Point<3> & p2, double secpoint,
+                       int surfi, 
+                       const PointGeomInfo & gi1, 
+                       const PointGeomInfo & gi2,

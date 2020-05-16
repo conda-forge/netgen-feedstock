@@ -13,9 +13,10 @@ source:
   sha256: {{ sha256 }}
   patches:
     - cmake.patch
+    - dll_header.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py27]
 
 requirements:
