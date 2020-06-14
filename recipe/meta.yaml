@@ -1,6 +1,6 @@
 {% set name = "netgen" %}
-{% set version = "6.2.2004" %}
-{% set sha256 = "a41111470baf65090066df85957aea8afdcb568a18f1915946228f3918d91928" %}
+{% set version = "6.2.2005" %}
+{% set sha256 = "cc6f678a52e7218525a8181b09f37925566a4d4796113a61a8640c79185dcadb" %}
 
 
 package:
@@ -13,10 +13,9 @@ source:
   sha256: {{ sha256 }}
   patches:
     - cmake.patch
-    - dll_header.patch
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py27]
 
 requirements:
