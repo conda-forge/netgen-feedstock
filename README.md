@@ -5,7 +5,7 @@ Home: https://sourceforge.net/projects/netgen-mesher/
 
 Package license: LGPL2.1
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: this is netgen
 
