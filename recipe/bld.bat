@@ -13,7 +13,7 @@ cmake -G "Ninja" ^
       -D USE_GUI:BOOL=OFF ^
       -D BUILD_FOR_CONDA:BOOL=ON ^
       -D USE_SUPERBUILD:BOOL=OFF ^
-      -D USE_NATIVE_ARCH:BOOL=OFF ^
+      -D USE_NATIVE_ARCH:BOOL=ON ^
       ..
 
 if errorlevel 1 exit 1
