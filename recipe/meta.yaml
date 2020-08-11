@@ -8,14 +8,16 @@ package:
   version: {{ version }}
 
 source:
-  fn: netgen_v{{ version }}.tar.gz
-  url: https://github.com/NGSolve/netgen/archive/v{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  git_url: https://github.com/NGSolve/netgen
+  git_tag: v{{ version }}
+  # fn: netgen_v{{ version }}.tar.gz
+  # url: https://github.com/NGSolve/netgen/archive/v{{ version }}.tar.gz
+  # sha256: {{ sha256 }}
   patches:
     - cmake.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py27]
 
 requirements:
