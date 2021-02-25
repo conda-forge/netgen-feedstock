@@ -17,7 +17,7 @@ source:
     - cmake.patch
 
 build:
-  number: 2
+  number: 3
   skip: true  # [py27]
 
 requirements:
