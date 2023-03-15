@@ -1,5 +1,5 @@
 {% set name = "netgen" %}
-{% set version = "6.2.2006" %}
+{% set version = "6.2.2302" %}
 {% set sha256 = "b554b6f7eb36feac7d6f5ee33cd520403709af579ab982f07e31a2c579d93a66" %}
 
 
@@ -13,11 +13,9 @@ source:
   # fn: netgen_v{{ version }}.tar.gz
   # url: https://github.com/NGSolve/netgen/archive/v{{ version }}.tar.gz
   # sha256: {{ sha256 }}
-  patches:
-    - cmake.patch
 
 build:
-  number: 4
+  number: 0
   skip: true  # [py27]
 
 requirements:
@@ -25,6 +23,7 @@ requirements:
     - {{ compiler('cxx') }}
     - ninja
     - cmake
+    - {{ cdt('mesa-libgl-devel') }}  # [linux]
   host:
     - occt
     - python
@@ -36,8 +35,8 @@ requirements:
     - zlib
 
 test:
-  commands:
-    - python -c "import sys; print(sys.version); import netgen;"
+  imports:
+    - netgen
 
 about:
   home: https://sourceforge.net/projects/netgen-mesher/
