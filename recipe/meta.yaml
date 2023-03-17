@@ -34,10 +34,6 @@ requirements:
     - python
     - zlib
 
-test:
-  imports:
-    - netgen
-
 about:
   home: https://sourceforge.net/projects/netgen-mesher/
   license: LGPL2.1
