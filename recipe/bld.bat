@@ -10,7 +10,8 @@ cmake -G "Ninja" -B build ^
       -D USE_GUI:BOOL=OFF ^
       -D BUILD_FOR_CONDA:BOOL=ON ^
       -D USE_SUPERBUILD:BOOL=OFF ^
-      -D USE_NATIVE_ARCH:BOOL=OFF
+      -D USE_NATIVE_ARCH:BOOL=OFF ^
+      -D PREFER_SYSTEM_PYBIND11=ON
 
 if errorlevel 1 exit 1
 ninja -C build install
