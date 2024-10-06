@@ -8,16 +8,12 @@ cmake -G "Ninja" -B build \
       -D NG_INSTALL_DIR_LIB=lib \
       -D NG_INSTALL_DIR_CMAKE:FILEPATH=lib/cmake/netgen \
       -D NG_INSTALL_DIR_RES=share \
-      -D OCC_INCLUDE_DIR:FILEPATH=$PREFIX/include/opencascade \
-      -D OCC_LIBRARY_DIR:FILEPATH=$PREFIX/lib \
       -D USE_NATIVE_ARCH:BOOL=OFF \
       -D USE_OCC:BOOL=ON \
       -D USE_PYTHON:BOOL=ON \
       -D USE_GUI:BOOL=OFF \
       -D USE_SUPERBUILD:BOOL=OFF \
-      -D BUILD_FOR_CONDA:BOOL=ON \
-      -D DYNAMIC_LINK_PYTHON:BOOL=OFF \
       -D PREFER_SYSTEM_PYBIND11=ON
 
-ninja -C build install -v
+ninja -C build install
 
