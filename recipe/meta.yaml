@@ -29,9 +29,7 @@ requirements:
     - pybind11
     - zlib
   run:
-    - occt
     - python
-    - zlib
 
 test:
   imports:
