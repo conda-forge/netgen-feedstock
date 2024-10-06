@@ -16,7 +16,8 @@ cmake -G "Ninja" -B build \
       -D USE_GUI:BOOL=OFF \
       -D USE_SUPERBUILD:BOOL=OFF \
       -D BUILD_FOR_CONDA:BOOL=ON \
-      -D DYNAMIC_LINK_PYTHON:BOOL=OFF
+      -D DYNAMIC_LINK_PYTHON:BOOL=OFF \
+      -D PREFER_SYSTEM_PYBIND11=ON
 
 ninja -C build install -v
 
