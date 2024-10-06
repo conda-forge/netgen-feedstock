@@ -1,8 +1,4 @@
-mkdir build -p
-cd build
-
-
-cmake -G "Ninja" \
+cmake -G "Ninja" -B build \
       -D CMAKE_BUILD_TYPE=Release \
       -D CMAKE_INSTALL_PREFIX:FILEPATH=$PREFIX \
       -D CMAKE_PREFIX_PATH:FILEPATH=$PREFIX \
@@ -20,8 +16,7 @@ cmake -G "Ninja" \
       -D USE_GUI:BOOL=OFF \
       -D USE_SUPERBUILD:BOOL=OFF \
       -D BUILD_FOR_CONDA:BOOL=ON \
-      -D DYNAMIC_LINK_PYTHON:BOOL=OFF \
-      ..
+      -D DYNAMIC_LINK_PYTHON:BOOL=OFF
 
-ninja install -v
+ninja -C build install -v
 

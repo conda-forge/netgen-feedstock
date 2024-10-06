@@ -1,7 +1,4 @@
-mkdir build
-cd build
-
-cmake -G "Ninja" ^
+cmake -G "Ninja" -B build ^
       -D CMAKE_BUILD_TYPE:STRING="Release" ^
       -D CMAKE_PREFIX_PATH:FILEPATH="%PREFIX%" ^
       -D CMAKE_INSTALL_PREFIX:FILEPATH="%LIBRARY_PREFIX%" ^
@@ -13,9 +10,8 @@ cmake -G "Ninja" ^
       -D USE_GUI:BOOL=OFF ^
       -D BUILD_FOR_CONDA:BOOL=ON ^
       -D USE_SUPERBUILD:BOOL=OFF ^
-      -D USE_NATIVE_ARCH:BOOL=OFF ^
-      ..
+      -D USE_NATIVE_ARCH:BOOL=OFF
 
 if errorlevel 1 exit 1
-ninja install
+ninja -C build install
 if errorlevel 1 exit 1
