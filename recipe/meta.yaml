@@ -25,6 +25,7 @@ requirements:
     - ninja
     - cmake
   host:
+    - libgl-devel
     - occt
     - python
     - zlib
