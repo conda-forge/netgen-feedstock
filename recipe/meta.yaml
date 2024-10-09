@@ -23,6 +23,7 @@ requirements:
     - ninja
     - cmake
   host:
+    - libgl-devel                            # [linux]
     - pybind11
     - pybind11-stubgen                       # [build_platform != target_platform]
     - libgl-devel                            # [linux]
