@@ -15,7 +15,8 @@ cmake -G "Ninja" -B build \
       -D USE_PYTHON:BOOL=ON \
       -D USE_GUI:BOOL=OFF \
       -D USE_SUPERBUILD:BOOL=OFF \
-      -D PREFER_SYSTEM_PYBIND11=ON
+      -D PREFER_SYSTEM_PYBIND11=ON \
+      -D BUILD_STUB_FILES:BOOL=OFF
 
 ninja -C build install
 
