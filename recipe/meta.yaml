@@ -17,14 +17,14 @@ source:
     - cmake.patch
 
 build:
-  number: 4
-  skip: true  # [py27]
+  number: 5
 
 requirements:
   build:
     - {{ compiler('cxx') }}
     - ninja
     - cmake
+    - make   # [unix]
   host:
     - occt
     - python
@@ -36,8 +36,8 @@ requirements:
     - zlib
 
 test:
-  commands:
-    - python -c "import sys; print(sys.version); import netgen;"
+  imports:
+    - netgen
 
 about:
   home: https://sourceforge.net/projects/netgen-mesher/
