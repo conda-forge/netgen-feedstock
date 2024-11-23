@@ -1,5 +1,5 @@
 {% set name = "netgen" %}
-{% set version = "6.2.2006" %}
+{% set version = "6.2.2405" %}
 {% set sha256 = "b554b6f7eb36feac7d6f5ee33cd520403709af579ab982f07e31a2c579d93a66" %}
 
 
@@ -8,40 +8,39 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/NGSolve/netgen
-  git_tag: v{{ version }}
-  # fn: netgen_v{{ version }}.tar.gz
-  # url: https://github.com/NGSolve/netgen/archive/v{{ version }}.tar.gz
-  # sha256: {{ sha256 }}
-  patches:
-    - cmake.patch
+  url: https://github.com/NGSolve/netgen/archive/v{{ version }}.tar.gz
+  sha256: 6d491336ab91cf3a0e416e75bbd17e604303c2aef1d448cea18f8388b719dc42
 
 build:
-  number: 4
-  skip: true  # [py27]
+  number: 0
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}                      # [not win]
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - ninja
     - cmake
   host:
+    - libgl-devel                            # [linux]
+    - pybind11
+    - pybind11-stubgen                       # [build_platform != target_platform]
+    - libgl-devel                            # [linux]
     - occt
     - python
-    - pybind11
     - zlib
   run:
-    - occt
     - python
-    - zlib
 
 test:
-  commands:
-    - python -c "import sys; print(sys.version); import netgen;"
+  imports:
+    - netgen
+    - pyngcore
 
 about:
   home: https://sourceforge.net/projects/netgen-mesher/
-  license: LGPL2.1
+  license: LGPL-2.1-or-later
   license_family: LGPL
   license_file: LICENSE
   summary: this is netgen
