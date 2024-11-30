@@ -1,3 +1,7 @@
+if [[ ${HOST} =~ .*darwin.* ]]; then
+  echo "removing python framework"
+  rm -rf /Library/Frameworks/Python.framework
+fi
 CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
 
 cmake -G "Ninja" -B build \
