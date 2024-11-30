@@ -1,6 +1,7 @@
-if [[ ${HOST} =~ .*darwin.* ]]; then
+if [[ ${HOST} =~ .*darwin.* && -n "$AGENT_ID" ]]; then
   echo "removing python framework"
   sudo rm -rf /Library/Frameworks/Python.framework
+  sudo rm -rf /Applications/Xcode_15.2.app/Contents/Developer/Library/Frameworks/Python3.framework
 fi
 CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
 
