@@ -17,12 +17,13 @@ source:
     - cmake.patch
 
 build:
-  number: 4
+  number: 5
   skip: true  # [py27]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - ninja
     - cmake
   host:
