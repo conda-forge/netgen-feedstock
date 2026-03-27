@@ -21,6 +21,7 @@ cmake -G "Ninja" \
       -D USE_SUPERBUILD=OFF \
       -D BUILD_WITH_CONDA=ON \
       -D DYNAMIC_LINK_PYTHON=OFF \
+      -D Python3_ROOT_DIR=$PREFIX \
       ${CMAKE_PLATFORM_FLAGS[@]} \
       ..
 

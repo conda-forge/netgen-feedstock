@@ -34,8 +34,11 @@ requirements:
     - numpy
 
 tests:
-  - script:
-      - python -c "import sys; print(sys.version); import netgen; import numpy;"
+  # script + python -c breaks quoting on Windows cmd; use imports for cross-platform
+  - python:
+      imports:
+        - netgen
+        - numpy
 
 about:
   license: LGPL-2.1-only
