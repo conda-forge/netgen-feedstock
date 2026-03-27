@@ -3,14 +3,24 @@ cd build
 
 REM TODO: can not find tkint.h -> disabling GUI for WIN
 
+REM Use %PREFIX% as install root (same idea as build.sh). Installing only under
+REM LIBRARY_PREFIX put the netgen package under Library/lib/site-packages; conda
+REM Python on Windows only imports from Lib\site-packages.
+
 cmake -G "Ninja" ^
       -D CMAKE_BUILD_TYPE="Release" ^
       -D INSTALL_DIR_LAYOUT="Unix" ^
       -D CMAKE_PREFIX_PATH:FILEPATH="%PREFIX%" ^
-      -D CMAKE_INSTALL_PREFIX:FILEPATH="%LIBRARY_PREFIX%" ^
-      -D NG_INSTALL_DIR_INCLUDE:FILEPATH="%LIBRARY_PREFIX%/include/netgen" ^
+      -D CMAKE_INSTALL_PREFIX:FILEPATH="%PREFIX%" ^
+      -D NG_INSTALL_DIR_INCLUDE:FILEPATH="%PREFIX%/include/netgen" ^
+      -D NG_INSTALL_DIR_PYTHON=Lib/site-packages ^
+      -D NG_INSTALL_DIR_BIN=bin ^
+      -D NG_INSTALL_DIR_LIB=lib ^
+      -D NG_INSTALL_DIR_CMAKE=lib/cmake/netgen ^
+      -D NG_INSTALL_DIR_RES=share ^
       -D OCC_INCLUDE_DIR:FILEPATH="%LIBRARY_PREFIX%/include/opencascade" ^
       -D OCC_LIBRARY_DIR:FILEPATH="%LIBRARY_PREFIX%/lib" ^
+      -D Python3_ROOT_DIR:FILEPATH="%PREFIX%" ^
       -D USE_OCC=ON ^
       -D USE_PYTHON=ON ^
       -D USE_GUI=OFF ^
