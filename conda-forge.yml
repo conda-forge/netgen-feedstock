@@ -8,6 +8,6 @@ github:
   branch_name: main
   tooling_branch_name: main
 provider:
-  linux_aarch64: github
-  osx-arm64: github
+  linux_aarch64: azure
+  osx-arm64: azure
 conda_build_tool: rattler-build
