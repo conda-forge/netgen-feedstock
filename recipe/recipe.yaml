@@ -14,7 +14,7 @@ source:
   sha256: ${{ sha256 }}
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -39,6 +39,15 @@ tests:
       imports:
         - netgen
         - numpy
+
+  # macOS: stepwise import + faulthandler to surface SIGSEGV / stack in CI logs
+  - if: osx
+    then:
+      - script:
+          - bash -ec 'export PYTHONFAULTHANDLER=1; python debug_osx_import.py'
+        files:
+          source:
+            - debug_osx_import.py
 
 about:
   license: LGPL-2.1-only
