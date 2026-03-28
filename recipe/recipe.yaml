@@ -14,7 +14,7 @@ source:
   sha256: ${{ sha256 }}
 
 build:
-  number: 0
+  number: 2
 
 requirements:
   build:
@@ -48,7 +48,8 @@ tests:
       - script:
           - bash -ec 'export PYTHONFAULTHANDLER=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1; python debug_osx_import.py'
         files:
-          source:
+          # `source` = files from extracted tarball ($SRC_DIR); `recipe` = recipe dir ($RECIPE_DIR)
+          recipe:
             - debug_osx_import.py
 
 about:
