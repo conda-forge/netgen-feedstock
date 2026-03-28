@@ -2,6 +2,13 @@
 """
 Debug helper for import-time crashes (e.g. SIGSEGV) on macOS only.
 
+Typical CI failure (faulthandler): crash while loading the *native* pybind module
+for ``pyngcore`` (importlib create_module), after ``numpy`` already loaded.
+``netgen`` then pulls in ``pyngcore`` — import ``pyngcore`` first to pin the step.
+
+Next steps if it still segfaults on ``pyngcore``: check the ``.so`` with
+``otool -L`` / ``install_name_tool`` (RPATH, libngcore, OCCT, Python).
+
 Usage (on a Mac, in an env where netgen is installed):
   PYTHONFAULTHANDLER=1 python debug_osx_import.py
 
@@ -46,8 +53,10 @@ def main() -> int:
     print("executable:", sys.executable, flush=True)
     print("version:", sys.version.replace("\n", " "), flush=True)
 
+    # Order matters: netgen/__init__.py imports pyngcore; isolate pyngcore first.
     steps = [
         ("numpy", lambda: __import__("numpy")),
+        ("pyngcore", lambda: __import__("pyngcore")),
         ("netgen", lambda: __import__("netgen")),
     ]
 
