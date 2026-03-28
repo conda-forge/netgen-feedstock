@@ -14,7 +14,7 @@ source:
   sha256: ${{ sha256 }}
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -34,17 +34,19 @@ requirements:
     - numpy
 
 tests:
-  # script + python -c breaks quoting on Windows cmd; use imports for cross-platform
-  - python:
-      imports:
-        - netgen
-        - numpy
+  # On macOS the generic `python: imports` test often segfaults before any extra test runs
+  # (single conda_build_script.py order). Use only the debug script on osx; linux/win keep imports.
+  - if: not osx
+    then:
+      - python:
+          imports:
+            - netgen
+            - numpy
 
-  # macOS: stepwise import + faulthandler to surface SIGSEGV / stack in CI logs
   - if: osx
     then:
       - script:
-          - bash -ec 'export PYTHONFAULTHANDLER=1; python debug_osx_import.py'
+          - bash -ec 'export PYTHONFAULTHANDLER=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1; python debug_osx_import.py'
         files:
           source:
             - debug_osx_import.py
