@@ -19,8 +19,10 @@ On non-macOS, exits 0 immediately (no-op) so you can keep one command in docs/CI
 """
 from __future__ import annotations
 
+import importlib.util
 import os
 import sys
+from pathlib import Path
 
 
 def _is_osx() -> bool:
@@ -53,14 +55,7 @@ def main() -> int:
     print("executable:", sys.executable, flush=True)
     print("version:", sys.version.replace("\n", " "), flush=True)
 
-    # Order matters: netgen/__init__.py imports pyngcore; isolate pyngcore first.
-    steps = [
-        ("numpy", lambda: __import__("numpy")),
-        ("pyngcore", lambda: __import__("pyngcore")),
-        ("netgen", lambda: __import__("netgen")),
-    ]
-
-    for name, fn in steps:
+    def run_step(name: str, fn) -> None:
         print(f"--> import {name} ...", flush=True)
         try:
             fn()
@@ -68,6 +63,23 @@ def main() -> int:
             print(f"!!! failed on import {name}: {e!r}", file=sys.stderr, flush=True)
             raise
         print(f"    ok: {name}", flush=True)
+
+    run_step("numpy", lambda: __import__("numpy"))
+
+    # Before loading pyngcore's native extension: log paths for otool -L on a real machine
+    spec = importlib.util.find_spec("pyngcore")
+    print("pyngcore find_spec:", spec, flush=True)
+    if spec and spec.submodule_search_locations:
+        for loc in spec.submodule_search_locations:
+            d = Path(loc)
+            print("  pyngcore package dir:", d, flush=True)
+            if d.is_dir():
+                for p in sorted(d.iterdir()):
+                    print("   ", p.name, flush=True)
+
+    # Crash is here: importlib create_module for the pybind .so (see faulthandler).
+    run_step("pyngcore", lambda: __import__("pyngcore"))
+    run_step("netgen", lambda: __import__("netgen"))
 
     print("--- all imports succeeded ---", flush=True)
     return 0

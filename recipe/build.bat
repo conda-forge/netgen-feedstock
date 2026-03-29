@@ -7,8 +7,12 @@ REM Use %PREFIX% as install root (same idea as build.sh). Installing only under
 REM LIBRARY_PREFIX put the netgen package under Library/lib/site-packages; conda
 REM Python on Windows only imports from Lib\site-packages.
 
+REM Tarball: set version; RPATH so pybind extension finds libs under PREFIX\lib
 cmake -G "Ninja" ^
       -D CMAKE_BUILD_TYPE="Release" ^
+      -D "NETGEN_VERSION_GIT=v%PKG_VERSION%-0" ^
+      -D "CMAKE_INSTALL_RPATH=%PREFIX%/lib" ^
+      -D CMAKE_INSTALL_RPATH_USE_LINK_PATH=ON ^
       -D INSTALL_DIR_LAYOUT="Unix" ^
       -D CMAKE_PREFIX_PATH:FILEPATH="%PREFIX%" ^
       -D CMAKE_INSTALL_PREFIX:FILEPATH="%PREFIX%" ^
