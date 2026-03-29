@@ -5,11 +5,11 @@ cd build
 : "${PKG_VERSION:?PKG_VERSION must be set}"
 NETGEN_VERSION_GIT="v${PKG_VERSION}-0"
 
-# Linux: DYNAMIC_LINK_PYTHON=OFF matches common conda extension builds.
-# macOS: DYNAMIC_LINK_PYTHON=ON so the pybind module links libpython dynamically;
-#        explicit CMAKE_INSTALL_RPATH helps pyngcore/.so find libngcore.dylib, OCCT, zlib at import.
+# DYNAMIC_LINK_PYTHON=OFF (Linux and macOS): same pattern as typical conda-forge CPython
+# extensions — do not link libpython into libngcore / pyngcore. On Darwin, linking
+# @rpath/libpython3.x.dylib (seen in CI otool -L) led to segfault on import pyngcore
+# with Python 3.13; symbols resolve from the interpreter via extension-module rules.
 if [[ "$(uname -s)" == "Darwin" ]]; then
-  _DYNAMIC_LINK_PYTHON=ON
   _RPATH_EXTRA=(
     -D "CMAKE_INSTALL_RPATH=${PREFIX}/lib"
     -D CMAKE_INSTALL_RPATH_USE_LINK_PATH=ON
@@ -17,12 +17,12 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
     -D CMAKE_MACOSX_RPATH=ON
   )
 else
-  _DYNAMIC_LINK_PYTHON=OFF
   _RPATH_EXTRA=(
     -D "CMAKE_INSTALL_RPATH=${PREFIX}/lib"
     -D CMAKE_INSTALL_RPATH_USE_LINK_PATH=ON
   )
 fi
+_DYNAMIC_LINK_PYTHON=OFF
 
 cmake -G "Ninja" \
       -D CMAKE_BUILD_TYPE=Release \
