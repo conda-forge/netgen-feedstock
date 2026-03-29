@@ -25,8 +25,7 @@ requirements:
   host:
     - occt
     - python
-    # 3.0.2+: import/finalization fixes relevant to Python 3.13 extension modules (e.g. #5867, #5870).
-    - pybind11 >=3.0.2,<3.1
+    - pybind11 ==3.0.1
     - zlib
   run:
     - occt
