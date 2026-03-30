@@ -30,8 +30,6 @@ cmake -G "Ninja" \
       -D NG_INSTALL_DIR_LIB=lib \
       -D NG_INSTALL_DIR_CMAKE=lib/cmake/netgen \
       -D NG_INSTALL_DIR_RES=share \
-      -D OCC_INCLUDE_DIR="$PREFIX/include/opencascade" \
-      -D OCC_LIBRARY_DIR="$PREFIX/lib" \
       -D USE_NATIVE_ARCH=OFF \
       -D USE_OCC=ON \
       -D USE_PYTHON=ON \
