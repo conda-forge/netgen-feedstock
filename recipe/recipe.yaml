@@ -2,8 +2,8 @@ schema_version: 1
 
 context:
   name: netgen
-  version: "6.2.2600"
-  sha256: "179abb89ec4a439d54ab20412b91e43d855c3d0287ec56c2465a51a96450c103"
+  version: "6.2.2601"
+  sha256: "14bb144f4cd5c7a6a56a1156b6eab1b7cf157699c237afe1f83bb0c2951db46e"
 
 package:
   name: ${{ name }}
