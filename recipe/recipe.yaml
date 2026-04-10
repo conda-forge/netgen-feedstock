@@ -12,6 +12,8 @@ package:
 source:
   url: https://github.com/looooo/netgen/archive/refs/tags/v${{ version }}.tar.gz
   sha256: ${{ sha256 }}
+  patches:
+    - patches/fix-egg-info-name.patch
 
 build:
   number: 0
