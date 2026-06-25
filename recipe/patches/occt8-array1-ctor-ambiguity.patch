@@ -1,0 +1,37 @@
+Fix NCollection_Array1 constructor ambiguity with OCCT 8.0.0.
+
+OCCT 8.0.0 adds an NCollection_Array1(pointer, size_t) buffer-reuse
+constructor. With a literal 0 lower bound (a null-pointer constant), calls
+like `TColgp_Array1OfPnt poles(0, vpoles.size()-1)` become ambiguous between
+the (int, int) and (pointer, size_t) constructors. Cast the arguments to
+Standard_Integer so the (int, int) constructor is selected unambiguously.
+
+This is on top of the upstream "fixes for compatibility with occ 8.0" change
+(occt8-compat.patch); those lines are not addressed there.
+
+diff --git a/libsrc/occ/python_occ_shapes.cpp b/libsrc/occ/python_occ_shapes.cpp
+index 8703f4d..ba12efe 100644
+--- a/libsrc/occ/python_occ_shapes.cpp
++++ b/libsrc/occ/python_occ_shapes.cpp
+@@ -2535,9 +2535,9 @@ TopoDS_Shape
+ 
+   m.def("BSplineCurve", [](std::vector<gp_Pnt> vpoles, int degree) {
+       // not yet working ????
+-      TColgp_Array1OfPnt poles(0, vpoles.size()-1);
+-      TColStd_Array1OfReal knots(0, vpoles.size()+degree);
+-      TColStd_Array1OfInteger mult(0, vpoles.size()+degree);
++      TColgp_Array1OfPnt poles(Standard_Integer(0), Standard_Integer(vpoles.size()-1));
++      TColStd_Array1OfReal knots(Standard_Integer(0), Standard_Integer(vpoles.size()+degree));
++      TColStd_Array1OfInteger mult(Standard_Integer(0), Standard_Integer(vpoles.size()+degree));
+       // int cnt = 0;
+ 
+       for (int i = 0; i < vpoles.size(); i++)
+@@ -2557,7 +2557,7 @@ TopoDS_Shape
+     });
+   
+   m.def("BezierCurve", [](std::vector<gp_Pnt> vpoles) {
+-      TColgp_Array1OfPnt poles(0, vpoles.size()-1);
++      TColgp_Array1OfPnt poles(Standard_Integer(0), Standard_Integer(vpoles.size()-1));
+ 
+       for (int i = 0; i < vpoles.size(); i++)
+         poles.SetValue(i, vpoles[i]);

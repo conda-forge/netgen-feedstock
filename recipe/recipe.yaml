@@ -14,6 +14,10 @@ source:
   sha256: ${{ sha256 }}
   patches:
     - patches/fix-egg-info-name.patch
+    # Drop the vendored SALOME Partition_* sources and adapt to OCCT 8.0.0
+    # (cherry-pick of NGSolve/netgen commit e96aa9c "fixes for compatibility with occ 8.0").
+    - patches/occt8-compat.patch
+    - patches/occt8-array1-ctor-ambiguity.patch
 
 build:
   number: 1
