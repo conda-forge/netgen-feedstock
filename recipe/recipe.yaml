@@ -20,7 +20,7 @@ source:
     - patches/occt8-array1-ctor-ambiguity.patch
 
 build:
-  number: 3
+  number: 4
 
 requirements:
   build:
